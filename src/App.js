@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ExpenseForm from "./ExpenseForm";
 
 function App() {
+  const [expenses, setExpenses] = useState([]);
+
+  const addExpense = (expense) => {
+    setExpenses([...expenses, expense]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Budget Tracker</h1>
+      <ExpenseForm onAddExpense={addExpense} />
+      {/* <ul>
+        {expenses.map((expense, index) => (
+          <li key={index}>
+            ${expense.amount.toFixed(2)} - {expense.description}
+          </li>
+        ))}
+      </ul> */}
     </div>
+
   );
 }
 
