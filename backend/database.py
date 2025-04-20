@@ -41,3 +41,14 @@ def get_expenses():
     
     connection.close()
     return [dict(row) for row in expenses]
+
+def delete_expense(id):
+    connection = sqlite3.connect('expenses.db')
+    cursor = connection.cursor()
+
+    cursor.execute('''
+        DELETE FROM expenses WHERE id = ?
+    ''', (id,))
+
+    connection.commit()
+    connection.close()

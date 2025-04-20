@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from database import init_db, add_expense, get_expenses
+from database import init_db, add_expense, get_expenses, delete_expense
 
 
 app = Flask(__name__)
@@ -24,6 +24,13 @@ def add_new_expense():
     add_expense(amount, description, date)
 
     return jsonify({'message': 'Expense added successfully'}), 201
+
+@app.route('/api/expenses/<int:id>', methods=['DELETE'])
+def delete_target_expense(id):
+    print(f"Deleting expense with id: {id} (type: {type(id)})")
+    delete_expense(id)
+    return jsonify({'message': 'Expense deleted successfully'}), 200
+
 
 if __name__ == '__main__':
     app.run(debug=True)
