@@ -78,16 +78,16 @@ function ExpenseForm({}) {
         
         <form onSubmit={handleSubmit} style={{display: "flex", gap: "10px"}}>
             <input
-                type="number"
-                placeholder="Amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-            />
-            <input
                 type="text"
                 placeholder="Description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+            />
+            <input
+                type="number"
+                placeholder="Amount"
+                value={amount}
+                onChange={(e) => setAmount(e.target.value)}
             />
             <input 
                 type="date"
@@ -95,7 +95,6 @@ function ExpenseForm({}) {
                 value={expenseDate}
                 onChange={(e) => setExpenseDate(e.target.value)}
             />
-
             <button type="submit">Add Expense</button>
         </form>
         
