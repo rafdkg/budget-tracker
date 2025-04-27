@@ -18,6 +18,7 @@ function ExpenseList({ expenses, onDeleteExpense }) {
                             </li>
                         ))}
                     </ul>
+                    <p>Weekly total: ${expenses.reduce((acc, obj) => (acc + obj.amount), 0).toFixed(2)}</p>
                 </li>
                 ))
             }

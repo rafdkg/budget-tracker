@@ -20,8 +20,8 @@ const groupByWeek = (entries) => {
     const group = {};
     
     entries.forEach((entry) => {
-        // const sunday = formatDate(calcSunday(entry.date));
-        const sunday = calcSunday(entry.date);
+        const sunday = formatDate(calcSunday(entry.date));
+        // const sunday = calcSunday(entry.date);
         
         if (!group[sunday]) {
             group[sunday] = [];

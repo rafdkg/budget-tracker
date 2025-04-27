@@ -1,9 +1,8 @@
-import { useState, useEffect, useMemo } from "react";
-import { formatDate, groupByWeek } from '../utils/Utils.js';
+import { useState, useEffect } from "react";
 import ExpenseList from './ExpenseList.js';
 import axios from "axios";
 
-function ExpenseForm({}) {
+function ExpenseForm() {
 
     const DEBUG_MODE = false;
     // Input Fields
@@ -58,9 +57,7 @@ function ExpenseForm({}) {
                 setExpenses(expenses.filter(keepExpense));  //Re-render after deletion
             })
             .catch((error) => console.error(error));
-
-
-    }
+    };
 
     // For Debugging purposes
     useEffect(() => {
@@ -69,7 +66,7 @@ function ExpenseForm({}) {
         }
         console.log("-----DEBUG-----");
 
-    }, [expenses]);
+    }, [DEBUG_MODE, expenses]);
 
     
     
